@@ -18,7 +18,7 @@ describe "As an unathenticted use" do
       click_on "Create User"
 
       expect(current_path).to eq(user_path(User.last.id))   
-      expect(page).to have_content("Welcome Ed") 
+      expect(page).to have_content("Welcome, Ed!") 
     end
   end
 
