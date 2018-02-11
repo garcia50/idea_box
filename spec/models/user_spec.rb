@@ -21,19 +21,19 @@ describe User do
     end
 
     it "is valid with a name" do
-      user = create!(:user)
+      user = create(:user)
 
       expect(user).to be_valid
     end
 
     it "is valid with a email" do
-      user = create!(:user)
+      user = create(:user)
 
       expect(user).to be_valid
     end
 
     it "is valid with a password" do
-      user = create!(:user)
+      user = create(:user)
 
       expect(user).to be_valid
     end

@@ -5,7 +5,7 @@ FactoryBot.define do
     password_digest "pass"
   end
 
-  factory :ides do
+  factory :idea do
     content "Flying Muffins"
     user
     category
@@ -15,7 +15,7 @@ FactoryBot.define do
     title "Food"
   end
 
-  factory :images do 
+  factory :image do 
     image "dog"
     image_file_name
     image_content_type
