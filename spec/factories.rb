@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :user do
     name "Jake"
     email "muffins@turing.com"
+    password_digest "pass"
   end
 
   factory :ides do
