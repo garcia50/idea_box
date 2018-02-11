@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   resources :welcome, only: [:index]
 
-  
+  get '/login',  to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 
   resources :users, shallow: true do
     resources :ideas

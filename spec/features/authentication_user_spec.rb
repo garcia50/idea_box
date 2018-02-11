@@ -5,7 +5,7 @@ describe "As an unathenticted use" do
     scenario "when I click on the link I can create an account" do
       visit root_path
 
-      click_on 'Sign Up To Be A User'
+      click_on 'Register'
 
       expect(current_path).to eq(new_user_path)
       expect(page).to have_content("Create a user here") 
@@ -41,22 +41,23 @@ describe "As an unathenticted use" do
   describe "As an athenticated user" do 
     describe "when I visit homepage I see a sign in link" do
       scenario "when I click on the link I can access the existing users account" do
-        user = User.create(username: "friend", password: "pass")
+        User.create!(name: "luisg", email: "woot", password_digest: "test")
 
-        visit '/'
+        visit root_path
 
-        click_on 'sign in'
+        click_on 'Sign In'
 
         expect(current_path).to eq(login_path)
         
-        fill_in "username", with: user.username
-        fill_in "password", with: user.password
+        fill_in "user[name]", with: user.name
+        fill_in "user[email]", with: user.email
+        fill_in "user[password_digest]", with: user.password_digest
 
         click_on "Log In"
 
         expect(current_path).to eq(user_path(user))
 
-        expect(page).to have_content("Welcome, #{user.username}!")
+        expect(page).to have_content("Welcome, #{user.name}!")
         expect(page).to have_content("Logout")
       end  
     end

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "#{@user.name} account created!"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       flash[:error] = "This email already exists in our database!"
