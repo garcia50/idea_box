@@ -58,24 +58,12 @@ describe "As an unathenticted use" do
         expect(current_path).to eq(user_path(user))
 
         expect(page).to have_content("Welcome, #{user.name}!")
-        # expect(page).to have_content("Logout")
+        expect(page).to have_content("Logout")
       end  
     end
   end 
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

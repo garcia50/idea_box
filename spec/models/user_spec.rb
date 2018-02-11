@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+describe User, type: :model do
   describe "validations" do
     it "is invalid without a name" do
       user = User.new(email: "me@you.com", password_digest: "youandme")
@@ -37,6 +37,18 @@ describe User do
 
       expect(user).to be_valid
     end
-  end
 
+    it "presence of name" do
+      user = User.new(email: "get@me.com", password: "Password")
+
+      expect(user).to_not be_valid
+    end
+    
+    it "uniqueness of email" do
+      orig = User.create(name: "user", email: "you@me.com", password: "Password")
+      copy = User.new(name: "user", email: "you@me.com", password: "Password")
+
+      expect(copy).to_not be_valid
+    end
+  end
 end
