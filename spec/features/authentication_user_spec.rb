@@ -12,8 +12,8 @@ describe "As an unathenticted use" do
 
 
       fill_in "user[name]", with: "Ed"
-      fill_in "user[email", with: "muf@fin.com"
-      fill_in "user[password]", with: "muffin"
+      fill_in "user[email]", with: "muf@fin.com"
+      fill_in "user[password_digest]", with: "muffin"
 
       click_on "Create User"
 
