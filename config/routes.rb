@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   resources :welcome, only: [:index]
 
+  
+
   resources :users, shallow: true do
     resources :ideas
   end

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "#{@user.name} account created!"
       redirect_to user_path(@user)
     else
+      flash[:error] = "This email already exists in our database!"
       render :new
     end
   end

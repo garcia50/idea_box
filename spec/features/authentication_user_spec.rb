@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "As an unathenticted use" do
   describe "when I visit the landing page I see a create a new user link" do
     scenario "when I click on the link I can create an account" do
-      visit '/'
+      visit root_path
 
       click_on 'Sign Up To Be A User'
 
@@ -21,4 +21,64 @@ describe "As an unathenticted use" do
       expect(page).to have_content("Welcome Ed") 
     end
   end
+
+  describe "when a user signs up with an existing account" do
+    scenario "the user is redirected to the new_path with a prompt to enter a new username" do 
+      visit new_user_path
+
+      User.create!(name: "luisg", email: "woot", password_digest: "test")
+
+      fill_in "user[name]", with: "luisg"
+      fill_in "user[email]", with: "woot"
+      fill_in "user[password_digest]", with: "test"
+
+      click_on "Create User"
+
+      expect(page).to have_content("This email already exists in our database!")
+    end
+  end
+
+  describe "As an athenticated user" do 
+    describe "when I visit homepage I see a sign in link" do
+      scenario "when I click on the link I can access the existing users account" do
+        user = User.create(username: "friend", password: "pass")
+
+        visit '/'
+
+        click_on 'sign in'
+
+        expect(current_path).to eq(login_path)
+        
+        fill_in "username", with: user.username
+        fill_in "password", with: user.password
+
+        click_on "Log In"
+
+        expect(current_path).to eq(user_path(user))
+
+        expect(page).to have_content("Welcome, #{user.username}!")
+        expect(page).to have_content("Logout")
+      end  
+    end
+  end 
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
