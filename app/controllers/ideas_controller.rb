@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
 
   def index
     @user = current_user
-    @idea = @user.idea.all
+    @ideas = @user.ideas.all
   end
 
   def new
@@ -16,6 +16,21 @@ class IdeasController < ApplicationController
       redirect_to idea_path(@idea)
     else
       render :new
+    end
+  end
+
+  def edit
+    @idea = Idea.find(params[:id])
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    @idea.update(idea_params)
+    if @idea.save
+      flash[:success] = "Idea Updated!"
+      redirect_to user_ideas_path(@idea.user)
+    else
+      render :edit
     end
   end
 
