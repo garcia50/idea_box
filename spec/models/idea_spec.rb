@@ -7,7 +7,8 @@ describe Idea do
       category = create(:category)
       idea = create(:idea, user: user, category: category)
 
-      expect(idea).to respond_to(user)
+      expect(idea).to respond_to(:user)
+      expect(idea.user).to eq(user)
     end
   end
 

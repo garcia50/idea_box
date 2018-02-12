@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20180211013325) do
   create_table "ideas", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
-    t.bigint "categories_id"
-    t.index ["categories_id"], name: "index_ideas_on_categories_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_ideas_on_category_id"
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
@@ -41,6 +41,6 @@ ActiveRecord::Schema.define(version: 20180211013325) do
     t.integer "role", default: 0
   end
 
-  add_foreign_key "ideas", "categories", column: "categories_id"
+  add_foreign_key "ideas", "categories"
   add_foreign_key "ideas", "users"
 end

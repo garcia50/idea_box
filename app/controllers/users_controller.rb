@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :check_user, only: [:show]
+
   def index
     @user = User.all
   end 
