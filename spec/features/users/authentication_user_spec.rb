@@ -63,6 +63,45 @@ describe "As an unathenticted use" do
     end
   end 
 
+  describe "As an athenticated user" do 
+    describe "when I login I see a logout link" do
+      scenario "when I click on logout my session is closed" do
+        user = User.create!(name: "luisg", email: "woot", password: "test")
+        
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+        visit user_path(user)
+
+        click_on 'Logout'
+
+        expect(current_path).to eq(root_path)
+
+        expect(page).to have_content("IdeaBox")
+        expect(page).to have_content("Register")
+      end  
+    end
+  end 
+
+  describe "As an athenticated user" do 
+    describe "when I log into a new session" do 
+      scenario "I cannot visit another users session" do
+        user = User.create!(name: "luisg", email: "woot", password: "test")
+        user_2 = User.create!(name: "dang", email: "toot", password: "pass")
+
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+        visit user_path(user)
+
+        expect(page).to have_content(user.name)
+
+        visit '/users/2'
+
+        expect(page).to have_content(user.name)
+        expect(page).to have_content(user.name)
+      end
+    end
+  end 
+
 end
 
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :check_user, only: [:show]
   def index
     @user = User.all
   end 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   private

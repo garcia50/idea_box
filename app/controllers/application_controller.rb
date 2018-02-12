@@ -6,4 +6,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def check_user
+    redirect_to root_path if !current_user
+  end
 end
