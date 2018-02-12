@@ -1,5 +1,5 @@
 class Idea < ApplicationRecord
-  validates :content, optional: true
-  belong_to :category
+  validates :content, presence: true
+  belongs_to :category
   has_many :images
 end
