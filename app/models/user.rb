@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   has_many :categories
   has_many :ideas 
+
+  enum role: %w(default admin)
 end
