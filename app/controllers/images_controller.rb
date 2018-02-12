@@ -1,5 +1,3 @@
 class ImagesController < ApplicationController
 
-    
-
 end

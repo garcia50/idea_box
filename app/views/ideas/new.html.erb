@@ -1,0 +1,8 @@
+<h2>If you can think it, save it before you forget!</h2>
+
+<%= form_for [:user, @idea] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>

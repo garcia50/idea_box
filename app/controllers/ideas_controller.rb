@@ -1,21 +1,22 @@
 class IdeasController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @idea = @user.idea.all
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @idea = @user.idea.new
+    @idea = current_user.ideas.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @idea = @user.idea.new(idea_params)
+    @idea = current_user.ideas.new(idea_params)
     if @idea.save
       flash[:success] = "Great idea!"
-      redirect_to 
+      redirect_to idea_path(@idea)
+    else
+      render :new
+    end
   end
 
 
