@@ -1,3 +1,17 @@
 <h2>If you can think it, save it before you forget!</h2>
 
-<%= render partial: "form" %>
+
+<%= form_for [:user, @idea] do |f| %>
+  <h4>Select Category: <%= collection_select(:idea, :category_id, Category.all, :id, :title) %></h4>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>
+
+<br>
+<br>
+<br>
+<%= link_to "Logout", method: "delete" %>
+<%= link_to "Home", user_ideas_path(@idea.user) %>
+

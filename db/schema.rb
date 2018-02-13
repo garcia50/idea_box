@@ -44,3 +44,16 @@ ActiveRecord::Schema.define(version: 20180211013325) do
   add_foreign_key "ideas", "categories"
   add_foreign_key "ideas", "users"
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

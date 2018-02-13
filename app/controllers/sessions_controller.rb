@@ -6,8 +6,13 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.name}!"
-      redirect_to user_path(user)
+      if user.admin?
+        flash[:success] = "Welcome your highness!"
+        redirect_to admin_user_path(user)
+      else
+        flash[:success] = "Welcome, #{user.name}!"
+        redirect_to user_path(user)
+      end
     else
       flash[:error] = "Did you forget you password? Cuz I don't know it!"
       render :new
