@@ -28,10 +28,7 @@ ActiveRecord::Schema.define(version: 20180211013325) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_update_at"
+    t.string "image_url"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,16 +41,3 @@ ActiveRecord::Schema.define(version: 20180211013325) do
   add_foreign_key "ideas", "categories"
   add_foreign_key "ideas", "users"
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

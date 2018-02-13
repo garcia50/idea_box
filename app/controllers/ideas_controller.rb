@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  before_action :check_user, only: [:new, :index]
 
   def index
     if current_user.default?
