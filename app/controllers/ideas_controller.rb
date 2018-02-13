@@ -1,8 +1,12 @@
 class IdeasController < ApplicationController
+  before_action :check_user, only: [:new, :index]
 
   def index
-    @user = current_user
-    @ideas = @user.ideas.all
+    if current_user.default?
+      @ideas = current_user.ideas
+    else
+      @ideas = Idea.all
+    end
   end
 
   def new
@@ -11,10 +15,12 @@ class IdeasController < ApplicationController
 
   def create
     @idea = current_user.ideas.new(idea_params)
+    @idea.category_id = params[:idea][:category_id]  
     if @idea.save
       flash[:success] = "Great idea!"
-      redirect_to idea_path(@idea)
+      redirect_to user_ideas_path(@idea.user)
     else
+      flash[:error] = "This idea already exist!"
       render :new
     end
   end
@@ -34,6 +40,12 @@ class IdeasController < ApplicationController
     end
   end
 
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+
+    redirect_to user_ideas_path(@idea.user)
+  end
 
   private
 

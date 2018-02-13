@@ -1,5 +1,29 @@
 <h1>Wonderful Ideas</h1>
+<h4><%= link_to "Create Idea", new_user_idea_path %></h4>
+<br>
+<br>
+<br>
+<% @ideas.each do |idea| %>
 
-<%= @ideas.each do |idea| %>
+  <label class="container">Image
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+  </label>
+  <br>
+  <br>
+
+
+  Category: <%= idea.category.title %>
+  <br>
   <%= idea.content %>
+  <br>
+  <%= link_to "edit", edit_idea_path(idea) %>
+  <%= link_to "delete", idea_path(idea), method: "delete", data: {confirm: "Are you sure you want to delete this idea?"} %>
+  <br>
+  <br>
 <% end %>
+
+<br>
+<br>
+<br>
+<%= link_to "Logout", logout_path, method: "delete" %>
