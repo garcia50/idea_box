@@ -4,6 +4,7 @@
 # Examples:
 #
 require './app/models/image'
+# require './app/models/user'
 
 
 PICS = ["https://s3.amazonaws.com/backpackersverse/wp-content/uploads/2016/07/20101209/Doll-Enjoys-Burning-Her-Victims-Alive.jpg",
@@ -18,3 +19,6 @@ PICS.each do |pic|
 end
 
 User.create!(name: "jeff", email: "jeff@turing.io", password: "password", role: 1)
+User.create!(name: "elsa", email: "elsag", password: "password", role: 1)
+User.create!(name: "lou", email: "loug", password: "pass", role: 0)
+User.create!(name: "dan", email: "dang", password: "pass", role: 0)
