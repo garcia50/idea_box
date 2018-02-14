@@ -3,7 +3,7 @@
 <br>
 
 <% @ideas.each do |idea| %>
-  <% idea.idea_images.each do |image| %>
+  <% idea.images.each do |image| %>
     <%= image_tag(image.image_url, size: "150x150")%>
   <% end %>
 

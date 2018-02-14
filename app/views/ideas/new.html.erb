@@ -6,7 +6,7 @@
   
 <% Image.all.each do |image| %>
   <%= image_tag(image.image_url, size: "150x150")%>
-  <%= check_box_tag("image_url[]", image.image_url, checked = false) %>
+  <%= check_box_tag("image_url[]", image.id) %>
 <% end %>
 
 <br>
