@@ -1,9 +1,12 @@
 <h1>Wonderful Ideas</h1>
 <h4><%= link_to "Create Idea", new_user_idea_path %></h4>
 <br>
-<br>  
-<br>
+
 <% @ideas.each do |idea| %>
+  <% idea.idea_images.each do |image| %>
+    <%= image_tag(image.image_url, size: "150x150")%>
+  <% end %>
+
   Category: <%= idea.category.title %>
   <br>
   <%= idea.content %>
@@ -16,5 +19,8 @@
 
 <br>
 <br>
-<br>
 <%= link_to "Logout", logout_path, method: "delete" %>
+<br>
+<br>
+<%= link_to "Home", user_path(current_user) %>
+

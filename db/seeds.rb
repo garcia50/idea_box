@@ -16,3 +16,5 @@ PICS = ["https://s3.amazonaws.com/backpackersverse/wp-content/uploads/2016/07/20
 PICS.each do |pic|
   Image.create!(image_url: pic)
 end
+
+User.create!(name: "jeff", email: "jeff@turing.io", password: "password", role: 1)

@@ -1,18 +1,18 @@
 class Admin::ImagesController < Admin::BaseController
 
   def index
-    @images = Image.all
+    @images = Image.all  
   end
 
   def new
-    @image = Image.all
+    @image = Image.new
   end
 
   def create
     @image = Image.new(image_params)
     if @image.save
       flash[:success] = "Image Added!"
-      redirect_to user_ideas_path(@images.user)
+      redirect_to admin_images_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class Admin::ImagesController < Admin::BaseController
     image = Image.find(params[:id])
     image.destroy 
 
-    redirect_to user_ideas_path(image.user)
+    redirect_to admin_images_path
   end
 
   private
