@@ -14,6 +14,7 @@ class IdeasController < ApplicationController
   end
 
   def create
+    require 'pry'; binding.pry
     @idea = current_user.ideas.new(idea_params)
     @idea.category_id = params[:idea][:category_id]  
     if @idea.save

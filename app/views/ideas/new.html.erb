@@ -2,6 +2,14 @@
 
 
 <%= form_for [:user, @idea] do |f| %>
+<br>
+  
+<% Image.all.each do |image| %>
+  <%= image_tag(image.image_url, size: "150x150")%>
+  <%= check_box_tag("image", image.id, checked = false) %>
+<% end %>
+
+<br>
   <h4>Select Category: <%= collection_select(:idea, :category_id, Category.all, :id, :title) %></h4>
   <%= f.label :content %>
   <%= f.text_field :content %>

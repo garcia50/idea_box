@@ -1,18 +1,9 @@
 <h1>Wonderful Ideas</h1>
 <h4><%= link_to "Create Idea", new_user_idea_path %></h4>
 <br>
-<br>
+<br>  
 <br>
 <% @ideas.each do |idea| %>
-
-  <label class="container">Image
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-  </label>
-  <br>
-  <br>
-
-
   Category: <%= idea.category.title %>
   <br>
   <%= idea.content %>
