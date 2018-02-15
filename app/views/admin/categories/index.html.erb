@@ -1,18 +1,22 @@
-<h1>Admin Categories</h1>
-<h4><%= link_to "Create A Category", new_admin_category_path %></h4>
-<br>
-<br>
-<h4>Categories:</h4>
+<div class="usershowparentt">
+  <div class="usp">
+    <h1>Admin Categories</h1>
+    <div class="usershoww">  
+      <h4><%= link_to "Create A Category", new_admin_category_path %></h4>
+      <br>
+      <br>
+      <h4>Categories:</h4>
 
-<% @categories.each do |category| %>
-  <ul>
-   <li><%= category.title %></li>
-    <%= link_to "delete", admin_category_path(category), method: "delete", data: {confirm: "Are you sure you want to delete this category?"} %>
-  </ul>
-<% end%>
+      <% @categories.each do |category| %>
+        <ul>
+         <li><%= category.title %></li>
+          <%= link_to "delete", admin_category_path(category), method: "delete", data: {confirm: "Are you sure you want to delete this category?"} %>
+        </ul>
+      <% end%>
 
-
-<br>
-<br>
-<%= link_to "Admin Home", admin_user_path(current_user) %>
-
+      <br>
+      <br>
+      <%= link_to "Admin Home", admin_user_path(current_user) %>
+    </div>    
+  </div>
+</div>

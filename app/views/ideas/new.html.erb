@@ -1,24 +1,18 @@
-<h2>If you can think it, save it before you forget!</h2>
+<div class="idea">
+  <h2>If you can think it, save it before you forget!</h2>
 
+    <%= form_for [:user, @idea] do |f| %>
+      <br>
+      
+      <% Image.all.each do |image| %>
+        <%= image_tag(image.image_url, size: "200x150")%>
+        <%= check_box_tag("image_url[]", image.id) %>
+      <% end %>   
 
-<%= form_for [:user, @idea] do |f| %>
-  <br>
-  
-  <% Image.all.each do |image| %>
-    <%= image_tag(image.image_url, size: "150x150")%>
-    <%= check_box_tag("image_url[]", image.id) %>
-  <% end %>
+      <h4>Select Category: <%= collection_select(:idea, :category_id, Category.all, :id, :title) %></h4>
+      <%= f.label :content %>
+      <%= f.text_field :content %>
 
-  <br>
-
-  <h4>Select Category: <%= collection_select(:idea, :category_id, Category.all, :id, :title) %></h4>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-
-  <%= f.submit %>
-<% end %>
-
-<br>
-<br>
-<%= link_to "back", user_ideas_path(@idea.user) %>
-
+      <%= f.submit %>
+    <% end %>
+</div>
