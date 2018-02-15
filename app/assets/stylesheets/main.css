@@ -99,6 +99,30 @@ body {
 
 .button:hover {opacity: 1}
 
+.usershowparent{
+  display: flex;
+  justify-content: flex-start;
+  background: url("greyb.jpg"); 
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 60%;
+  width: 900px;
+  margin-top: 60px;
+}
+
+.usershow {
+  display: flex;
+  align-items: center;
+  padding-left: 380px;
+}
+
+
+.usershow a {
+  background-attachment: fixed;
+  text-decoration: none;
+  font-size: 30px;
+  color: gray;
+}
 
 
 

@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  
   def new; end
 
   def create
@@ -10,7 +9,6 @@ class SessionsController < ApplicationController
         flash[:success] = "Welcome Your Majesty!"
         redirect_to admin_user_path(user)
       else
-        flash[:success] = "Welcome, #{user.name}!"
         redirect_to user_path(user)
       end
     else
@@ -23,5 +21,4 @@ class SessionsController < ApplicationController
     session.destroy
     redirect_to root_path
   end
-
 end

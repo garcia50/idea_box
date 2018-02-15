@@ -1,13 +1,11 @@
 <div class="nav">
   <% if current_user && current_user.admin?  %>
-    Welcome <%= current_user.name %>
     <%= link_to "Home", admin_user_path(current_user) %>
     <%= link_to "Create Category", new_admin_category_path %>
     <%= link_to "Add Image", new_admin_image_path %>
     <%= link_to "Logout", logout_path %>
 
   <% elsif current_user && current_user.default? && %>
-    Welcome <%= current_user.name %>
     <%= link_to "Home", user_path(current_user) %>
     <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
     <%= link_to "Logout", logout_path %>
