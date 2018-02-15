@@ -1,4 +1,18 @@
 <div class="nav">
-  <h3><%= link_to "Register", new_user_path %></h3>
-  <h3><%= link_to "Sign In", login_path %></h3>
+  <% if current_user && current_user.admin?  %>
+    <%= link_to "Admin" %>
+    <%= link_to "Create Category", new_admin_category_path %>
+    <%= link_to "Add Image", new_admin_image_path %>
+    <%= link_to "Logout", logout_path %>
+    <%= link_to "Home", admin_user_path(current_user) %>
+
+  <% elsif current_user && current_user.default? && %>
+    <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
+    <%= link_to "Logout", logout_path %>
+    <%= link_to "Home", user_path(current_user) %>
+    
+  <% else %>
+    <%= link_to "Home", root_path %>
+  <% end %>
 </div>
+

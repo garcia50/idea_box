@@ -1,17 +1,23 @@
-<h1>If its free its fo me!</h1>
+<div class="registerbody">
+  <div class="login">
+    <h1>If its free its fo me!</h1>
+    <h3>Register here!</h3>
+  </div>
 
-<h3>Create a user here</h3>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="register">
+    <%= form_for @user do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-  <%= f.label :password, "Password" %>
-  <%= f.text_field :password %>
-
-  <%= f.submit %>
-<% end %>
-
+      <%= f.label :password, "Password" %>
+      <%= f.text_field :password %>
+      <div class="button">
+        <%= f.submit %>
+    <% end %>      
+      </div>
+  </div>
+</div>

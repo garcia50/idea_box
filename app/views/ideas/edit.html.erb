@@ -1,15 +1,12 @@
-<h2>That was a dumb idea anyways...</h2>
+<div class="ideaa">
+  <h2>That was a dumb idea anyways...</h2>
 
 
-<%= form_for @idea do |f| %>
-  <%= collection_select(:idea, :category_id, Category.all, :id, :title) %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= form_for @idea do |f| %>
+    <%= collection_select(:idea, :category_id, Category.all, :id, :title) %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
 
-  <%= f.submit %>
-<% end %>
-
-<br>
-<br>
-<br>
-<%= link_to "Logout", logout_path, method: "delete" %>
+    <%= f.submit %>
+  <% end %>
+</div>

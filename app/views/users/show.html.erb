@@ -1,7 +1,8 @@
-Welcome, <%= @user.name %>! 
-<br>
-<br>
-<%= link_to "My Ideas", user_ideas_path(@user) %>
-<br>
-<br>
-<%= link_to "Logout", logout_path, method: "delete" %>
+<div class="usershowparent">
+  <div class="usershow">
+    Welcome, <%= @user.name %>! 
+    <br>
+    <br>
+    <%= link_to "My Ideas", user_ideas_path(@user) %>
+  </div>
+</div>

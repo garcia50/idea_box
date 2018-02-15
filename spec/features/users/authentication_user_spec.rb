@@ -5,10 +5,10 @@ describe "As an unathenticted use" do
     scenario "when I click on the link I can create an account" do
       visit root_path
 
-      click_on 'Register'
+      click_on 'Create An Account'
 
       expect(current_path).to eq(new_user_path)
-      expect(page).to have_content("Create a user here") 
+      expect(page).to have_content("If its free its fo me!") 
 
 
       fill_in "user[name]", with: "Ed"
@@ -17,7 +17,7 @@ describe "As an unathenticted use" do
 
       click_on "Create User"
 
-      expect(current_path).to eq(user_path(User.last.id))   
+      expect(current_path).to eq(user_path(User.last))   
       expect(page).to have_content("Welcome, Ed!") 
     end
   end
@@ -45,7 +45,7 @@ describe "As an unathenticted use" do
 
         visit root_path
 
-        click_on 'Sign In'
+        click_on 'Login'
 
         expect(current_path).to eq(login_path)
         
@@ -76,8 +76,8 @@ describe "As an unathenticted use" do
 
         expect(current_path).to eq(root_path)
 
-        expect(page).to have_content("IdeaBox")
-        expect(page).to have_content("Register")
+        expect(page).to have_content("Login")
+        expect(page).to have_content("Create An Account")
       end  
     end
   end 
