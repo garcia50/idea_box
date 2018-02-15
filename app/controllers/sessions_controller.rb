@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(user)
       end
     else
-      flash[:error] = "Did you forget you password? Cuz I don't know it!"
+      flash[:error] = "Have you already registered?"
       render :new
     end
   end
