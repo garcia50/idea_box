@@ -1,0 +1,51 @@
+html, body {
+  height: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-top: 200px;
+}
+
+.welcome-hero {
+  background: url("ideaboxLogo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 68px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  background-color: #19a0b3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  margin: 20px; 
+  text-shadow: 2px 2px grey;
+}
+
+.register form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-top: 0;
+}
+

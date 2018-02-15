@@ -3,10 +3,12 @@
   <head>
     <title>IdeaBox</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   </head>
+
+<%= render "navigation/nav" %>
 
   <body>
     <% flash.each do |name, msg| %>

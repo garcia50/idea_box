@@ -1,16 +1,18 @@
-<h2>Login</h2>
+<div class="register">
+  <h2>Login</h2>
 
-<%= form_tag login_path do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
+  <%= form_tag login_path do %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
 
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
 
-  <%= label_tag :password, "password" %>
-  <%= password_field_tag :password %>
+    <%= label_tag :password, "password" %>
+    <%= password_field_tag :password %>
 
-  <%= submit_tag "Log In" %>
-<% end %>
+    <%= submit_tag "Log In" %>
+  <% end %>
 
-<%= link_to "back home", root_path %>
+  <%= link_to "back home", root_path %>
+</div>

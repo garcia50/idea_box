@@ -16,6 +16,7 @@ class IdeasController < ApplicationController
   def create
     @idea = current_user.ideas.new(idea_params)
     @idea.category_id = params[:idea][:category_id]  
+    @idea.image_ids = params[:image_url]
     if @idea.save
       flash[:success] = "Great idea!"
       redirect_to user_ideas_path(@idea.user)
