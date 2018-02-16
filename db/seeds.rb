@@ -13,8 +13,7 @@ PICS = ["jt1.jpeg",
         "jt2.jpeg",
         "jt4.jpeg",
         "jt5.jpeg",
-        "jt7.jpeg",
-        "ilana.jpeg"
+        "jt7.jpeg"
        ]
 
 PICS.each do |pic|
