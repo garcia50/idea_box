@@ -3,10 +3,7 @@
     <h1>Admin Categories</h1>
     <div class="usershoww">  
       <h4><%= link_to "Create A Category", new_admin_category_path %></h4>
-      <br>
-      <br>
       <h4>Categories:</h4>
-
       <% @categories.each do |category| %>
         <ul>
          <li><%= category.title %></li>

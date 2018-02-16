@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :new, :create, :destroy]
     resources :users, only: [:show, :index]
     resources :images, only: [:index, :new, :create, :destroy]
+    resources :ideas
 end
 
 end

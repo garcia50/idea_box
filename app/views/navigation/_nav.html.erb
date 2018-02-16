@@ -1,6 +1,7 @@
 <div class="nav">
   <% if current_user && current_user.admin?  %>
     <h1><%= "Admin" %></h1>
+    <%= link_to "Create New Idea", new_admin_idea_path%>
     <%= link_to "Create Category", new_admin_category_path %>
     <%= link_to "Add Image", new_admin_image_path %>
     <%= link_to "Logout", logout_path %>
