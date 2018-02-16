@@ -161,6 +161,14 @@ body {
   text-decoration: underline;
 }
 
+.usus {
+  width: 300px;
+  border: 5px solid green;
+  border-color: grey;
+  padding: 25px;
+  margin: 5px;
+}
+
 .ed {
   display: flex;
   justify-content: center;
@@ -208,7 +216,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-left: 400px;
+  padding-left: 390px;
 }
 
 .usershowu a {
@@ -240,6 +248,26 @@ body {
   display: flex;
   padding-right: 550px;
 }
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.adminn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid green;
+  border-color: grey;
+  padding: 25px;
+  margin: 5px;
+  text-align: center;
+}
+
 
 
 

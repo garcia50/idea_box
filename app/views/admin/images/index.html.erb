@@ -2,26 +2,22 @@
   <div class="usp">
     <h1>Admin Images</h1>
     <div class="usershoww">  
-
       <h4><%= link_to "Add Image", new_admin_image_path %></h4>
       <br>
       <br>
       <h4>Images:</h4>
+        <% @images.each do |image| %>
+          <div class="usus">    
 
-      <% @images.each do |image| %>
-      <div class="sus">    
-
-        <ul>
-          <%= image_tag(image.image_url, size: "200x150")%>
-          <br>
-          <div class="usu">
-            <%= link_to "delete", admin_image_path(image), method: "delete", data: {confirm: "Are you sure you want to delete this image?"} %>
-          </div>  
-        </ul>
-      </div>
-      <% end %>
-
-
+            <ul>
+              <%= image_tag(image.image_url, size: "200x150")%>
+              <br>
+              <div class="usu">
+                <%= link_to "delete", admin_image_path(image), method: "delete", data: {confirm: "Are you sure you want to delete this image?"} %>
+              </div>  
+            </ul>
+          </div>
+        <% end %>
     </div>  
   </div>
 </div>

@@ -1,0 +1,24 @@
+<div class="admin">
+    <% @users.each do |user| %>
+      <%= user.name %>
+      
+      <% user.ideas.each do |user_idea| %>
+  <div class="adminn">
+        <% user_idea.images.each do |ui| %>  
+          <%= image_tag(ui.image_url, size: "200x150")%>
+        <% end %>  
+
+        
+        Category: <%= user_idea.category.title %>
+        <br>
+        <br>
+        Idea: <%= user_idea.content %>
+  </div>
+        
+      <%  end %>
+      <br>
+      <br>
+      <br>
+      <br>
+    <% end %>
+</div> 

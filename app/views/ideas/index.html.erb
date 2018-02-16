@@ -4,29 +4,28 @@
     <div class="name"><%= current_user.name %></div>
     <div class="usershoww">  
       <h4><%= link_to "Create Idea", new_user_idea_path %></h4>
-
-      <% @ideas.each do |idea| %>
-    <div class="sus">    
-        <% idea.images.each do |image| %>
-          <%= image_tag(image.image_url, size: "200x150")%>
-        <% end %>
-      <div class="usu">  
-        Category
-      </div> 
-        <%= idea.category.title %>
-        <br>
-        <br>
-      <div class="usu">   
-        Idea 
-      </div>  
-        <%= idea.content %>
-        <br>
-        <br>
+        <% @ideas.each do |idea| %>
+      <div class="sus">    
+          <% idea.images.each do |image| %>
+            <%= image_tag(image.image_url, size: "200x150")%>
+          <% end %>
+        <div class="usu">  
+          Category
+        </div> 
+          <%= idea.category.title %>
+          <br>
+          <br>
+        <div class="usu">   
+          Idea 
+        </div>  
+          <%= idea.content %>
+          <br>
+          <br>
         <div class="ed">
         <%= button_to "edit", edit_idea_path(idea), :method=> :get %>
         <%= button_to "delete", idea_path(idea), method: "delete", data: {confirm: "Are you sure you want to delete this idea?"} %>
         </div>
-    </div>    
+      </div>    
         <br>
         <br>
         <br>
