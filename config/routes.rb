@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index]
     resources :images, only: [:index, :new, :create, :destroy]
     resources :ideas
-end
+  end
 
 end
