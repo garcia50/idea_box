@@ -6,12 +6,15 @@
 require './app/models/image'
 # require './app/models/user'
 
+Image.delete_all
+User.delete_all
 
 PICS = ["jt1.jpeg",
         "jt2.jpeg",
         "jt4.jpeg",
         "jt5.jpeg",
-        "jt7.jpeg"
+        "jt7.jpeg",
+        "ilana.jpeg"
        ]
 
 PICS.each do |pic|
