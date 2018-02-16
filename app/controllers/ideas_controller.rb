@@ -32,6 +32,8 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find(params[:id])
+    @idea.category_id = params[:idea][:category_id]
+    @idea.image_ids = params[:image_url] 
     @idea.update(idea_params)
     if @idea.save
       flash[:success] = "Idea Updated!"
